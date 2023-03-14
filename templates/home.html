@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+  <div class="col-md-12 mb-4">
+    <h1>Welcome to Adopt!</h1>
+    <p>Here, you'll find the cutest pets looking for their forever home. Browse our selection and find the perfect match for you.</p>
+  </div>
+  {% for pet in pets %}
+  <div class="col-md-4 mb-4">
+    <div class="card">
+      {% if pet.photo_url %}
+      <img src="{{ pet.photo_url }}" alt="{{ pet.name }} photo" class="card-img-top">
+      {% endif %}
+      <div class="card-body">
+        <h5 class="card-title">{{ pet.name }}</h5>
+        <p class="card-text">{{ pet.species }} - {{ pet.age }} years old</p>
+        {% if pet.available %}
+        <p class="card-text"><span class="badge badge-success">AVAILABLE</span></p>
+        {% endif %}
+        <a href="{{ url_for('edit_pet', pet_id=pet.id) }}" class="btn btn-primary">Edit</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
+
