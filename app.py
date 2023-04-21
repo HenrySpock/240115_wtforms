@@ -1,9 +1,3 @@
-# You may have to:
-# export FLASK_APP=app:app
-# export FLASK_ENV=development
-# export debug=1
-# in the terminal.
-
 from flask import Flask, render_template, jsonify, request, session, url_for, redirect, abort, flash 
 from flask_debugtoolbar import DebugToolbarExtension
 from dotenv import load_dotenv 
